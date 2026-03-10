@@ -47,13 +47,12 @@ using namespace std;
 //binary of a decimal no
 int decimalToBinary(int n){
     int binary;
+    int count = 0;
     while(n>0){
-        if(n%2== 0 ){
-            cout<<"0";
+        if(n%2== 1){
+            count++;
         }
-        else {
-            cout<<"1";
-        }
+        
         n=n/2;
     }
 }
