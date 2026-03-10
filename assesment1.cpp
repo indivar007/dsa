@@ -32,17 +32,30 @@ using namespace std;
 // }
 
 //print all digit of an integer
-int printDigit(int n){
+// int printDigit(int n){
     
-    while(n>0){
-        int digit= n%10;
-        cout<<digit<<endl;
-        n = n/10;
+//     while(n>0){
+//         int digit= n%10;
+//         cout<<digit<<endl;
+//         n = n/10;
 
 
-    }
+//     }
    
 
+// }
+//binary of a decimal no
+int decimalToBinary(int n){
+    int binary;
+    while(n>0){
+        if(n%2== 0 ){
+            cout<<"0";
+        }
+        else {
+            cout<<"1";
+        }
+        n=n/2;
+    }
 }
 
 int main(){
@@ -59,7 +72,10 @@ int main(){
     // cout<<number<<endl;
 
 
-       printDigit(n);
+    //    printDigit(n);/
+
+    decimalToBinary(n);
+
       
     return 0;
 
