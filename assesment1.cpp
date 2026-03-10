@@ -19,15 +19,29 @@ using namespace std;
 // }
 //create number using digit
 
-int digit(int n){
-     int number = 0 ; 
-     int digit;
+// int digit(int n){
+//      int number = 0 ; 
+//      int digit;
 
-     for(int i =0 ; i < n ; i++ ){
-        cin>>digit;
-        number = number * 10 +digit;
-     }
-     return number;
+//      for(int i =0 ; i < n ; i++ ){
+//         cin>>digit;
+//         number = number * 10 +digit;
+//      }
+//      return number;
+
+// }
+
+//print all digit of an integer
+int printDigit(int n){
+    
+    while(n>0){
+        int digit= n%10;
+        cout<<digit<<endl;
+        n = n/10;
+
+
+    }
+   
 
 }
 
@@ -41,12 +55,12 @@ int main(){
 //    cout<<fact<<endl;
 
    
-    int number = digit(n);
-    cout<<number<<endl;
+    // int number = digit(n);
+    // cout<<number<<endl;
 
 
-
-
+       printDigit(n);
+      
     return 0;
 
 }
