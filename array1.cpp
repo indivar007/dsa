@@ -24,15 +24,18 @@ int main(){
     // }
 
 
-    int arr[10];
-    int n =10;
-    for(int i = 0;i<n ;i++){
-        cin>>arr[i];
-        arr[i] = arr[i]*2;
+    
+
+    int arr[5]= {10,25,300,990,878};
+    int n = 5;
+    int sum = 0;
+    for(int i = 0; i<n ;i++){
+        sum = sum +arr[i];
+        cout<<sum<<endl;
+
     }
-    for(int i = 0; i<n ; i++){
-        cout<<arr[i]<<endl;
-    }
+    cout<<"the sum is : "<<sum<<endl;
+
     return 0;
 
 }
