@@ -1,39 +1,29 @@
 #include <iostream>
 using namespace std;
 
-void printArray(int arr[], int size){
-    for(int i = 0 ; i<size;i++){
-        cin>>arr[i];
-    }
-    for(int i = 0 ; i<size;i++){
-       cout<<arr[i]<<endl;
-    }
-    
-}
-int linearSearch(int arr[],int size,int target){
-    for(int i = 0 ; i< size ; i++){
-        if(arr[i] == target){
-            return true;
+void count(int arr[],int size){
+    int countzero = 0;
+    int countone = 0; 
+    for(int i = 0 ;i <size ;i++){
+        if(arr[i] == 0 ){
+            countzero++;
         }
-    }
-    return false;
-}
+        else{ countone++;
+        }
+        
 
-int main(){
-    int arr[5];
-    int size = 5;
-    int target = 100;
+
+    }
+    cout<<countzero<<endl;
+    cout<<countone<<endl;
     
-    printArray(arr,size) ;
-    int result  = linearSearch(arr, size, target);
-    if(result == 1 ){
-        cout<<"found"<<endl;
-    }
-    else{
-        cout<<"not found"<<endl;
-    }
 
-
+}
+int main(){
+    int arr[5]= {0,1,0,1,0};
+    int size = 5;
+    count(arr,size);
+   
 
   
     return 0;
