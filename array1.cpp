@@ -1,28 +1,22 @@
 #include <iostream>
+#include <limits.h>
 using namespace std;
 
-void count(int arr[],int size){
-    int countzero = 0;
-    int countone = 0; 
-    for(int i = 0 ;i <size ;i++){
-        if(arr[i] == 0 ){
-            countzero++;
-        }
-        else{ countone++;
-        }
-        
+int minOf(int arr[],int size){
+    int min = INT_MAX;
+    for(int i  = 0 ; i <size;i++ ){
+        if(arr[i] < min ){
+            min = arr[i]; 
 
-
+        }
     }
-    cout<<countzero<<endl;
-    cout<<countone<<endl;
-    
-
+    return min;
 }
 int main(){
-    int arr[5]= {0,1,0,1,0};
-    int size = 5;
-    count(arr,size);
+    int arr[8]= {70,75,150,250,100,390,1,-350};
+    int size = 8;
+    int result = minOf(arr ,size);
+    cout<<result<<endl;
    
 
   
