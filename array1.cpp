@@ -2,21 +2,31 @@
 #include <limits.h>
 using namespace std;
 
-int minOf(int arr[],int size){
-    int min = INT_MAX;
-    for(int i  = 0 ; i <size;i++ ){
-        if(arr[i] < min ){
-            min = arr[i]; 
+void reverseArray(int arr[],int size){
+    
+    int a = 0;
+    int b = size-1;
+    int temp;
+    while(a<=b){
+        temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
 
-        }
+        a++;
+        b--;
+        
+
     }
-    return min;
+    for(int i = 0 ; i<size;i++){
+        cout<<arr[i]<<endl;
+
+    }
+    
 }
 int main(){
-    int arr[8]= {70,75,150,250,100,390,1,-350};
-    int size = 8;
-    int result = minOf(arr ,size);
-    cout<<result<<endl;
+    int arr[7]= {70,75,150,250,100,390,1};
+    int size = 7;
+    reverseArray(arr,size);
    
 
   
