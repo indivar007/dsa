@@ -2,10 +2,8 @@
 #include <limits.h>
 using namespace std;
 
-int array2d(int arr[][4], int rows,int cols){
-    int max = INT_MIN;
-   
-    bool flag =0;
+void  sumrowwise(int arr[][4], int rows,int cols){
+    
     for(int i = 0 ; i<rows ; i++){
         for(int j = 0; j<cols ; j++){
             cin>>arr[i][j];
@@ -14,25 +12,19 @@ int array2d(int arr[][4], int rows,int cols){
 
     }
     for(int i = 0 ; i<3 ; i++){
+        int sum = 0;
         for(int j = 0; j<4 ; j++){
-            if(arr[i][j] > max ){
-                max = arr[i][j];
-                
-
-                
-
-            }
+           sum = sum + arr[i][j];
+          
             
            
         }
-        
+         cout<<sum<<endl;
 
     }
 
-    cout<<endl;
-    return max;
 
-  
+
 
 }
 
@@ -42,7 +34,7 @@ int main(){
     int rows;
     int column;
 
-    cout<<array2d(arr, 3,4);
+    sumrowwise(arr, 3,4);
 
     return 0;
 }
