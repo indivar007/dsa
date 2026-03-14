@@ -2,7 +2,7 @@
 #include <iostream>
  using namespace std;
 
- int callByValue(int n){
+ int callByValue(int &n){
     n++;
     return n;
  }
@@ -13,7 +13,7 @@
     int result = callByValue(n);
     cout<<result<<endl;
 
-    cout<<n<<endl;//here the n remains same as it is called by call by value there is no change in original adress
-    
+    cout<<n<<endl;// now as i have passed reference in function it changes ont he original adress 
+
     
  }
