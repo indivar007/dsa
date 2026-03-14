@@ -1,61 +1,35 @@
 #include <iostream>
 using namespace std;
 
+//right shifting by 1
+void shifting(int arr[],int size){
+    int temp=arr[size-1];
 
-void sort(int arr[], int size){
-    int countzero =0 ;
-    int onecount =0;
-
-    int i,j;
-
-    for (i = 0 ; i< size ;i++){
-        if(arr[i] == 0 ){
-            countzero++;
-            
-        
-        }
-        if(arr[i]== 1){
-            onecount++;
-        }
-    }
-    cout<<countzero<<endl;
-    cout<<onecount<<endl;
+    for(int i = size-1; i>0 ; i-- ){
+        arr[i] = arr[i-1];
 
 
 
-    // for(i = 0;i < countzero ; i++){
-    //     arr[i] = 0;
-        
-    // }
-    // for(j =  i ; j<size; j++){
-    //     arr[j]= 1;
-        
-    // }
-    int index =0;
-    while(countzero--){
-        arr[index] = 0;
-        index++;
-        
-    }
 
-    while(onecount--){
-        arr[index] =1;
-        index++;
+
 
     }
+    arr[0 ]=temp;
+
+}
 
     
 
    
-}
+
    
 
 
 int main(){
     //taking an array and sorting 0 and 1s
- int arr[]={0,1,1,1,0,0,0,0,0,0,1,1,1,0,0};
+ int arr[]={10,20,30,40,50,60,70,80,90,100,110,120,130,140};
  int size =14;
- sort(arr,size);
+ shifting(arr,size);
 
 
   for (int i = 0 ; i< size ;i++){
