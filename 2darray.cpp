@@ -1,8 +1,10 @@
 #include <iostream>
+#include <limits.h>
 using namespace std;
 
-void array2d(int arr[][4], int rows,int cols){
-    int target =70;
+int array2d(int arr[][4], int rows,int cols){
+    int min = INT_MAX;
+   
     bool flag =0;
     for(int i = 0 ; i<rows ; i++){
         for(int j = 0; j<cols ; j++){
@@ -13,8 +15,9 @@ void array2d(int arr[][4], int rows,int cols){
     }
     for(int i = 0 ; i<3 ; i++){
         for(int j = 0; j<4 ; j++){
-            if(arr[i][j] == target ){
-                flag =1;
+            if(arr[i][j] < min ){
+                min = arr[i][j];
+                
 
                 
 
@@ -25,14 +28,9 @@ void array2d(int arr[][4], int rows,int cols){
         
 
     }
-    if(flag ==1 ){
-        cout<<"target found";
 
-    }
-    else{
-        cout<<"target not found";
-    }
     cout<<endl;
+    return min;
 
   
 
@@ -44,7 +42,7 @@ int main(){
     int rows;
     int column;
 
-    array2d(arr, 3,4);
+    cout<<array2d(arr, 3,4);
 
     return 0;
 }
