@@ -5,23 +5,46 @@ using namespace std;
 void  sumrowwise(int arr[][4], int rows,int cols){
     
     for(int i = 0 ; i<rows ; i++){
-        for(int j = 0; j<cols ; j++){
+        for(int j = 0; j < cols ; j++){
             cin>>arr[i][j];
 
         }
 
     }
-    for(int i = 0 ; i<3 ; i++){
-        int sum = 0;
-        for(int j = 0; j<4 ; j++){
-           sum = sum + arr[i][j];
-          
+
+    int temp ;
+ 
+    
+    for(int i = 0 ; i<rows ; i++){
+        
+        for(int j = i+1; j<cols ; j++){
+
+            //transpose
+            temp = arr[i][j];
+            arr[i][j]= arr[j][i];
+            arr[j][i] = temp;
+
             
            
         }
-         cout<<sum<<endl;
+         
 
     }
+    for(int i = 0 ; i<cols ; i++){
+        
+        for(int j = 0; j<rows ; j++){
+
+            //transpose
+           cout<<arr[i][j]<< "\t";
+
+            
+           
+        }
+        cout<<endl;
+         
+
+    }
+   
 
 
 
@@ -30,11 +53,11 @@ void  sumrowwise(int arr[][4], int rows,int cols){
 
 int main(){
     
-    int arr[3][4];
+    int arr[4][4];
     int rows;
     int column;
 
-    sumrowwise(arr, 3,4);
+    sumrowwise(arr, 4,4);
 
     return 0;
 }
