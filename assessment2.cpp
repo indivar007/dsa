@@ -4,22 +4,35 @@ using namespace std;
 
 
 //missing number
-void missingNumber(vector<int> &arr,int n) {
-    for(int i =0;i<arr.size();i++){
+void removingDuplicates(vector<int> &arr,int n) {
+    arr.resize(n);
+
+    for(int i = 0 ; i < arr.size(); i++){
         cin>>arr[i];
-
-}
-
-    int expectedSum = n * (n+1)/2;
-    int sum = 0;
-    for(int i = 0 ; i < arr.size();i++){
-        sum += arr[i];
     }
 
-    int missing = expectedSum-sum;
-    cout<<missing;
-
+    vector<int> result;
+    for(int i = 0 ;i < arr.size(); i++){
+        bool duplicate = false;
+        for(int j =0; j < i; j++){
+            if(arr[i]== arr[j]){
+            duplicate = true;
+            break;
+            }
+        }
+        if(!duplicate){
+            result.push_back(arr[i]);
+        
+        }
+    }
+     cout << "After removing duplicates: ";
+    for(int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
 }
+    
+
+ 
 
 
 
@@ -28,7 +41,7 @@ int main(){
      int size=5;
    vector<int> arr(size);
  
-   missingNumber(arr,size);
+   removingDuplicates(arr,size);
 
    
 
