@@ -3,14 +3,16 @@
 #include <algorithm>
 using namespace std;
 
-int binarySearch(vector<int> &arr,int size, int target){
+int FirstInstance(vector<int> &arr,int size, int target){
     int left = 0 ;
     int right = size-1;
+    int ans =-1;
     
     while(left <= right ){
         int mid = (left+right)/2;
         if(arr[mid] == target){
-            return mid;
+            ans = mid;
+            right =mid-1;
 
         }
         else if(arr[mid] < target){
@@ -21,7 +23,7 @@ int binarySearch(vector<int> &arr,int size, int target){
             right = mid-1;
         }
     }
-    return -1;
+    return ans;
 
 }
 
@@ -38,7 +40,7 @@ int main(){
     int target ;
     cin>>target;
 
-    int res = binarySearch(arr,size,target);
+    int res = FirstInstance(arr,size,target);
     cout<<"the index at which target is there"<<res<<endl;
 
 
