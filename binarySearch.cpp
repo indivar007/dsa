@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-int FirstInstance(vector<int> &arr,int size, int target){
+int firstOccurance(vector<int> &arr,int size, int target){
     int left = 0 ;
     int right = size-1;
     int ans =-1;
@@ -12,18 +12,49 @@ int FirstInstance(vector<int> &arr,int size, int target){
         int mid = (left+right)/2;
         if(arr[mid] == target){
             ans = mid;
-            right =mid-1;
+            right = mid-1;
+
+        }
+        else if(arr[mid] > target){
+            right = mid -1;
+
+        }
+        else{
+            left = mid +1;
+        }
+    }
+    return ans;
+
+}
+
+int lastOcuurance(vector<int> &arr,int size ,int target){
+    int left = 0 ;
+    int right = size-1;
+    int ans;
+    while(left <= right){
+        int mid = (left + (right-left)/2);
+        if(arr[mid] == target){
+            ans = mid;
+            left = mid+1;
 
         }
         else if(arr[mid] < target){
-            left = mid+1;
-
+            left = mid +1;
         }
         else{
             right = mid-1;
         }
+
     }
     return ans;
+
+}
+int totalOcuurance(vector<int> &arr,int size,int target){
+    int last = lastOcuurance(arr ,size ,target);
+    int first = firstOccurance(arr,size,target);
+    int total = last-first+1;
+    return total;
+
 
 }
 
@@ -40,8 +71,13 @@ int main(){
     int target ;
     cin>>target;
 
-    int res = FirstInstance(arr,size,target);
-    cout<<"the index at which target is there"<<res<<endl;
+    int res = firstOccurance(arr,size,target);
+    cout<<"the index at which target is first ocuured"<<" "<<res<<endl;
 
+    int res1 = lastOcuurance(arr,size,target);
+    cout<<"the index where last ocuurance of target is there at"<<" "<<res1<<endl;
+
+    int total = totalOcuurance(arr, size,target);
+    cout<<"total no of occurance is"<<" "<<total<<endl;
 
 }
