@@ -59,30 +59,98 @@ using namespace std;
 // }
 
 
-int missingNo(vector<int> &arr,int size){
-    int left = 0;
-    int right = size-1;
-    int ans = size+1;
+// int missingNo(vector<int> &arr,int size){
+//     int left = 0;
+//     int right = size-1;
+//     int ans = size+1;
     
 
+//     while(left <= right){
+//         int mid = left + (right-left)/2;
+//         if(arr[mid] == mid+1){
+//             left = mid+1;
+//         }
+//         else {
+//             ans = mid+1;
+//             right = mid-1;
+//         }
+
+
+//     }
+
+//     return ans;
+// }
+
+// int peakMountain(vector<int>& arr){
+//     int left = 0;
+//     int right = arr.size()-1;
+//     while(left <= right){
+//         int mid = left + (right-left)/2;
+//         if(arr[mid] <= arr[mid+1]){
+//             left = mid+1;
+
+//         }
+//         else{
+//             right = mid;
+//         }
+//     }
+//     return left;
+
+// }
+
+int pivotElement(vector<int>& arr,int size){
+    int left = 0;
+    int right  =  size-1;
     while(left <= right){
-        int mid = left + (right-left)/2;
-        if(arr[mid] == mid+1){
+        int mid  = left + (right-left)/2;
+        if(left == right){
+            return left;
+        }
+        if(arr[mid]<arr[mid-1]){
+            return mid-1;
+        }
+        else if(arr[mid]>arr[mid+1]){
+            return mid;
+        }
+        else if(arr[left]>arr[mid]){
+            right = mid-1;
+        }
+        else{
             left = mid+1;
         }
-        else {
-            ans = mid+1;
-            right = mid-1;
+        
+
+    }
+    return -1;
+}
+int pivotSmallest(vector<int>& arr, int size){
+    int left =0 ;
+    int right =size-1;
+    while(left <= right){
+        int mid = left + (right -left)/2;
+        if(left = right ){
+            return left;
+        }
+        if(arr[mid] < arr[mid+1]){
+            return mid;
+        }
+        else if(arr[mid]>arr[mid-1]){
+            return mid-1;
+        }
+        else if(arr[left]<arr[mid]){
+            right = mid -1;
+        }
+        else{
+            left = mid+1;
         }
 
 
     }
+    return -1;
 
-    return ans;
 }
-
 int main(){
-    
+     
     int size ; 
     cin>>size;
     vector<int> arr(size);
@@ -103,7 +171,8 @@ int main(){
     // int total = totalOcuurance(arr, size,target);
     // cout<<"total no of occurance is"<<" "<<total<<endl;
 
-    int missing = missingNo(arr,size);
-    cout<<missing<<endl;
-
+    // int missing = missingNo(arr,size);
+    // cout<<missing<<endl;
+    cout<<pivotElement(arr,size)<<endl;
+    cout<<pivotSmallest(arr,size);
 }
