@@ -240,7 +240,19 @@ int main(){
     int dividend,divisor;
     cin>>dividend>>divisor;
     int precision=3;
-    double result = quotient(dividend,divisor,precision);
+    double result = quotient(abs(dividend),abs(divisor),precision);
+   
+
+    // if((dividend > 0 && divisor  >0) || (dividend < 0 && divisor  <0) ){
+    //      cout<<result;
+    // }
+    // else{
+    //     cout<< -(result);
+    // }
+    bool isnegative=(dividend<0)^(divisor<0);
+    if(isnegative){
+        result = -result;
+    }
     cout<<result;
 
 }
