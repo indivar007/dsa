@@ -98,81 +98,150 @@ using namespace std;
 
 // }
 
-int pivotElement(vector<int>& arr,int size){
-    int left = 0;
-    int right  =  size-1;
-    while(left <= right){
-        int mid  = left + (right-left)/2;
-        if(left == right){
-            return left;
-        }
-        if(arr[mid]<arr[mid-1]){
-            return mid-1;
-        }
-        else if(arr[mid]>arr[mid+1]){
-            return mid;
-        }
-        else if(arr[left]>arr[mid]){
-            right = mid-1;
-        }
-        else{
-            left = mid+1;
-        }
+// int pivotElement(vector<int>& arr,int size){
+//     int left = 0;
+//     int right  =  size-1;
+//     while(left <= right){
+//         int mid  = left + (right-left)/2;
+//         if(left == right){
+//             return left;
+//         }
+//         if(arr[mid]<arr[mid-1]){
+//             return mid-1;
+//         }
+//         else if(arr[mid]>arr[mid+1]){
+//             return mid;
+//         }
+//         else if(arr[left]>arr[mid]){
+//             right = mid-1;
+//         }
+//         else{
+//             left = mid+1;
+//         }
         
 
-    }
-    return -1;
-}
-int pivotSmallest(vector<int>& arr, int size){
-    int left =0 ;
-    int right =size-1;
-    while(left <= right){
-        int mid = left + (right -left)/2;
-        if(left = right ){
-            return left;
-        }
-        if(arr[mid] < arr[mid+1]){
+//     }
+//     return -1;
+// }
+// int pivotSmallest(vector<int>& arr, int size){
+//     int left =0 ;
+//     int right =size-1;
+//     while(left <= right){
+//         int mid = left + (right -left)/2;
+//         if(left = right ){
+//             return left;
+//         }
+//         if(arr[mid] < arr[mid+1]){
+//             return mid;
+//         }
+//         else if(arr[mid]>arr[mid-1]){
+//             return mid-1;
+//         }
+//         else if(arr[left]<arr[mid]){
+//             right = mid -1;
+//         }
+//         else{
+//             left = mid+1;
+//         }
+
+
+//     }
+//     return -1;
+
+// }
+// int main(){
+     
+//     int size ; 
+//     cin>>size;
+//     vector<int> arr(size);
+//     for(int i = 0 ; i < size; i++){
+//         cin>>arr[i];
+//     }
+//     // sort(arr.begin(), arr.end());
+
+//     // int target ;
+//     // cin>>target;
+
+//     // int res = firstOccurance(arr,size,target);
+//     // cout<<"the index at which target is first ocuured"<<" "<<res<<endl;
+
+//     // int res1 = lastOcuurance(arr,size,target);
+//     // cout<<"the index where last ocuurance of target is there at"<<" "<<res1<<endl;
+
+//     // int total = totalOcuurance(arr, size,target);
+//     // cout<<"total no of occurance is"<<" "<<total<<endl;
+
+//     // int missing = missingNo(arr,size);
+//     // cout<<missing<<endl;
+//     cout<<pivotElement(arr,size)<<endl;
+//     cout<<pivotSmallest(arr,size);
+// }
+
+// int sqrt(int target ){
+//     int left  = 0 ;
+//     int right = target;
+//     int ans;
+//     while(left <= right){
+//         int mid  = left + (right-left)/2;
+//         if(mid*mid == target){
+//             return mid;
+//         }
+//         else if(mid*mid < target){
+//             ans=mid;//storing closest value
+//             left = mid+1;
+//         }
+//         else{
+//             right = mid-1;
+//         }
+//     }
+
+// }
+
+
+// int main(){
+//    int target;
+//    cin>>target;
+   
+//    cout<<"Sqrt of this no is"<<sqrt(target);
+
+// }
+
+double quotient(int dividend,int divisor,int precision){
+
+    int left = 0 ;
+    int right = dividend;
+    int ans =-1;
+    while(left<=right){
+        int mid = left + (right-left)/2;
+        if(mid*divisor == dividend){
             return mid;
         }
-        else if(arr[mid]>arr[mid-1]){
-            return mid-1;
-        }
-        else if(arr[left]<arr[mid]){
-            right = mid -1;
+        if(mid*divisor < dividend){
+            ans = mid;
+            left= mid+1;
         }
         else{
-            left = mid+1;
+            right = mid-1;
         }
-
-
     }
-    return -1;
+    double result = ans;//stores answer in result
+    double factor = 0.1;//decimal upto 10th place
+
+    for(int i  = 0 ;i<precision;i++){
+        while((result + factor) <= (double)dividend / divisor){
+            result+=factor;
+        }
+        factor /= 10;
+    }
+    return result;
 
 }
 int main(){
-     
-    int size ; 
-    cin>>size;
-    vector<int> arr(size);
-    for(int i = 0 ; i < size; i++){
-        cin>>arr[i];
-    }
-    // sort(arr.begin(), arr.end());
+    int dividend,divisor;
+    cin>>dividend>>divisor;
+    int precision=3;
+    double result = quotient(dividend,divisor,precision);
+    cout<<result;
 
-    // int target ;
-    // cin>>target;
-
-    // int res = firstOccurance(arr,size,target);
-    // cout<<"the index at which target is first ocuured"<<" "<<res<<endl;
-
-    // int res1 = lastOcuurance(arr,size,target);
-    // cout<<"the index where last ocuurance of target is there at"<<" "<<res1<<endl;
-
-    // int total = totalOcuurance(arr, size,target);
-    // cout<<"total no of occurance is"<<" "<<total<<endl;
-
-    // int missing = missingNo(arr,size);
-    // cout<<missing<<endl;
-    cout<<pivotElement(arr,size)<<endl;
-    cout<<pivotSmallest(arr,size);
 }
+
